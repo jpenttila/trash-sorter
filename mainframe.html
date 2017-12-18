@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trashbot</title>
+	<meta charset="utf-8">
+	<link rel='stylesheet' href='styles.css'/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!--<script src="game_script.js"></script>-->	
+	<style>
+		#counter	{
+			display: none;
+			}
+		#next	{
+			display: none;
+			}
+		#endGame	{
+			display: none;
+			}
+		#restart	{
+			display: none;
+			}
+		#bin-grid-container	{
+			display: none;
+			}
+		#factBox	{
+			display: none;
+			}
+		#link	{
+			display: none;
+			}
+		#statbox	{
+			display: none;
+		}
+		#showScore	{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="sidepanel">
+			<div id="sidepanel-elements">
+  				<h1 id='text'>Lajittele roskat oikeisiin paikkoihin!</h1>
+				<button id="start" onclick="presetGame()">ALOITA</button>
+				<p id="gameOver"></p>
+				<p id="sortOut"></p>
+				<p id="response"></p>
+				<p id="counter"></p>
+				<!--<p id="correct"></p>
+				<p id="wrong"></p>-->
+				<button id="next">Seuraava</button>
+				<p id="factBox"></p>
+			</div>
+		</div>
+		<div id="content">
+			<div class='bin-grid-container'>
+  				<div class='bin-grid'>
+    				<div class='bin-grid-item first-item'>
+      				<div class="popup-container"><img id="mix" src='images/burn-bin.png'/>
+      					<span class="popup">Polttokelpoinen jäte tarkoittaa asumisessa syntyvää kierrätyskelvotonta jätettä.</span>
+      				</div> 
+    				</div>
+    				<div class='bin-grid-item'>
+    					<div class="popup-container"><img id="cardb" src='images/cardb-bin.png'/>
+      					<span class="popup">Kartonginkeräysastiaan kelpaavat kaikki kartongit, kunhan ne vain ovat puhtaita!</span>
+      				</div>
+    				</div>
+    				<div class='bin-grid-item'>
+      				<div class="popup-container"><img id="paper" src='images/paper-bin.png'/>
+      					<span class="popup">Paperinkeräykseen kelpaa kaikki postiluukun tai -laatikon kautta kotiin tuleva paperi.</span>
+      				</div> 
+    				</div>
+    				<div class='bin-grid-item'>
+  						<div class="popup-container"><img id="bio" src='images/bio-bin.png'/>
+  							<span class="popup" style="width: 120px; top: 50%; left: 50%; margin-left: -20px;">Biojätteeseen kuuluu kaikki maatuva ja biohajoava.</span>
+  						</div> 
+					</div>
+					<div class='bin-grid-item'>
+  						<div class="popup-container"><img id="recyc" src='images/recyc-bin.png'/>
+  							<span class="popup">Kierrätyskeskukseen voi viedä kaikenlaista kierrätyskelpoista tavaraa, kunhan ne ovat ehjiä ja käyttökelpoisia.</span>
+						</div>
+					</div>
+					<div class='bin-grid-item'>
+  						<div class="popup-container"><img id="glass" src='images/glass-bin.png'/>
+  							<span class="popup">Lasinkeräykseen voit laittaa puhtaat ja värilliset lasipakkaukset sekä lasiset pullot ja purkit.</span>
+  						</div> 
+					</div>
+					<div class='bin-grid-item'>
+  						<div class="popup-container"><img id="plastic" src='images/plastic-bin.png'/>
+  							<span class="popup">Muovipakkausten keräykseen saa laittaa tyhjiä, puhtaita ja kuivia muovipakkauksia.</span>
+						</div>					
+					</div>
+					<div class='bin-grid-item'>
+  						<div class="popup-container"><img id="elec" src='images/elec-bin.png'/>
+  							<span class="popup" style="width: 200px; top: -5px; right: 105%;">Elektroniikkaromun kierrätykseen kuuluvat käytöstä poistetut sähkö- ja elektroniikkalaitteet.</span>
+  						</div>
+					</div>
+					<div class='bin-grid-item'>
+  						<div class="popup-container"><img id="metal" src='images/metal-bin.png'/>
+  							<span class="popup">Metallinkeräysastiat on tarkoitettu pienille metalliesineille. Tarkista että aerosolipullot ovat tyhjiä!</span>
+						</div>					
+					</div>
+					<div class='bin-grid-item last-item'>
+  						<div class="popup-container"><img id="hazmat" src='images/hazmat-bin.png'/>
+  							<span class="popup">Vaaralliseen jätteeseen kuuluvat jätteet ovat myrkyllisiä ja ympäristölle haitallisia.</span>
+  						</div>	 
+					</div>
+			</div>
+			<div id="endgame-container"></div>
+			<!--<div class="endgame-container">
+					<div class="endgame-grid">
+						<div class="endgame-item first-item">
+							<img id="endGame" src='images/gameover-sign.png'/>
+						</div>
+						<div class="endgame-item">
+							<a href="http://www.raahe.fi/instancedata/prime_product_julkaisu/testi/embeds/testiwwwstructure/29362_Raahen_jateopas_web.pdf"><img id="link" src='images/link-sign.png'/></a>
+						</div>
+						<div class="endgame-item">
+							<img id="restart" src='images/restart-sign.png' onclick=location.reload() style="cursor: pointer;"/>
+						</div>
+						<div class='endgame-item last-item'>
+							<img id="showScore" src='images/score-sign.png' onclick=showScore() style="cursor: pointer;"/>
+						</div>
+					</div>
+ 				</div>-->
+ 			</div>
+ 		</div>
+ 	<div id="thumbbox"></div>
+ </div>
+</body>
+<script src="game_script.js"></script>
+</html>

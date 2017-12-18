@@ -1,0 +1,265 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Blokletters';
+  src: url('Blokletters-Balpen-webfont.woff') format('woff');
+}
+
+body {
+	font-family: 'Blokletters', sans-serif;
+}
+
+.bin-grid-container	{
+	display: flex;
+	justify-content: right;
+}
+
+.bin-grid	{
+	width: 880px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: right;
+}
+
+.bin-grid-item	{
+	width: 200px;
+	height: 250px;
+}
+
+.first-item	{
+	order: -1;
+}
+
+.last-item	{
+	order: 1;
+}
+
+#endgame-container	{
+	display: flex;
+	justify-content: left;
+}
+
+#endgame-grid	{
+	width: 373px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: right;
+}
+
+.endgame-item	{
+	width: 373px;
+	height: 100px;
+}
+
+.text	{
+	display: flex;
+	justify-content: left;
+	margin-bottom: 20px;
+	padding-left: 30px;
+	padding-top: 10px;
+	width: 380px;
+	}
+
+.wrapper	{
+	display: flex;
+	flex-direction: row;
+}
+
+.sidepanel, .content	{
+	height: 400px;
+}
+
+.sidepanel {
+  	flex: 3;
+  	border: 1px solid #000;
+}
+
+.sidepanel-elements	{
+	display: flex;
+  	justify-content: center;
+}
+
+#start, #next, #restart	{
+	display: block;
+	margin-left: 50px;
+}
+
+#sortOut	{
+	padding-top: 5px;
+	padding-left: 50px;
+	margin: auto;
+}
+
+#gameOver {
+	width: 380px;
+	padding-left: 30px;
+}
+
+#response {
+	width: 304px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	text-align: left;
+	border: 5px solid #fff;
+	display: block;
+	margin-left: 50px;
+}
+
+#endgame	{
+	display: block;
+	width: 800px;
+}
+
+#link, #restart, #showScore {
+	display: block;
+	width: 400px;
+}
+
+#correct, #wrong	{
+	height: 20px;
+	width: 200px;
+	text-align: center;
+}
+
+#counter	{
+	margin-top: 5px;
+	margin-bottom: 10px;
+	height: 20px;
+	width: 200px;
+	text-align: center;
+}
+
+#content {
+    flex: 7;
+}
+
+/* Tooltip container */
+.popup-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.popup-container .popup {
+    visibility: hidden;
+    width: 300px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.popup-container:hover .popup {
+    visibility: visible;
+}
+
+#factBox {
+	width: 304px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	text-align: left;
+	border: 5px solid blue; 
+	display: block;
+	margin-left: 50px;	
+	}
+
+#thumbbox	{
+	 position: fixed;
+    bottom:0;
+    left: 0;
+    right:0;
+    display: inline-block;
+}
+
+#bio, #mix, #metal, #cardb, #recyc, #hazmat, #glass, #plastic, #elec, #paper	{
+	border: 5px solid #fff;
+}
+
+.corrbor	{
+	border: 5px solid #00ff00;
+}
+
+#statbox	{
+	display: flex;
+	justify-content: right;
+	border: 5px solid blue;
+}
+
+.container {
+	height: 100%;
+   padding: 0;
+   margin: 0;
+   display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.statTable {
+  display: table;         
+  width: auto;                  
+  border: 1px solid #666666;         
+  border-spacing: 5px;
+}
+
+.statRow	{
+  display: table-row;
+  width: auto;
+  clear: both;
+}
+
+.topRow	{
+  display: table-row;
+  width: auto;
+  clear: both;
+  text-align: center;
+  font-weight: bold;
+}
+
+.statCol {
+  float: left; /* fix for  buggy browsers */
+  display: table-column;         
+  width: 350px;
+  border: 1px solid black;           
+}
+
+#junk0, #junk1, #junk2, #junk3, #junk4, #junk5, #junk6, #junk7, #junk8, #junk9, #junk10, #junk11, #junk12, #junk13, #junk14	{
+	height: 255px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+#score0, #score1, #score2, #score3, #score4, #score5, #score6, #score7, #score8, #score9, #score10, #score11, #score12, #score13, #score14	{
+	height: 255px;
+	text-align: center;
+	padding-top: 100px;
+}
+
+#bin0, #bin1, #bin2, #bin3, #bin4, #bin5, #bin6, #bin7, #bin8, #bin9, #bin10, #bin11, #bin12, #bin13, #bin14	{
+	height: 255px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}

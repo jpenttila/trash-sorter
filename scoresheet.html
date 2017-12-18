@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trashbot</title>
+	<meta charset="utf-8">
+	<link rel='stylesheet' href='styles.css'/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<section class="container">
+    <div class="statTable">
+    	<div class="topRow">
+			<div class="statCol">Jäte</div>
+			<div class="statCol">Vastaus oli...</div>
+			<div class="statCol">Oikea jäteastia</div>    	
+    	</div>
+    	<div class='statRow'>
+			<div class="statCol" id="junk0"></div>
+			<div class="statCol" id="score0"></div>
+			<div class="statCol" id="bin0"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk1"></div>
+			<div class="statCol" id="score1"></div>
+			<div class="statCol" id="bin1"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk2"></div>
+			<div class="statCol" id="score2"></div>
+			<div class="statCol" id="bin2"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk3"></div>
+			<div class="statCol" id="score3"></div>
+			<div class="statCol" id="bin3"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk4"></div>
+			<div class="statCol" id="score4"></div>
+			<div class="statCol" id="bin4"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk5"></div>
+			<div class="statCol" id="score5"></div>
+			<div class="statCol" id="bin5"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk6"></div>
+			<div class="statCol" id="score6"></div>
+			<div class="statCol" id="bin6"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk7"></div>
+			<div class="statCol" id="score7"></div>
+			<div class="statCol" id="bin7"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk8"></div>
+			<div class="statCol" id="score8"></div>
+			<div class="statCol" id="bin8"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk9"></div>
+			<div class="statCol" id="score9"></div>
+			<div class="statCol" id="bin9"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk10"></div>
+			<div class="statCol" id="score10"></div>
+			<div class="statCol" id="bin10"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk11"></div>
+			<div class="statCol" id="score11"></div>
+			<div class="statCol" id="bin11"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk12"></div>
+			<div class="statCol" id="score12"></div>
+			<div class="statCol" id="bin12"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk13"></div>
+			<div class="statCol" id="score13"></div>
+			<div class="statCol" id="bin13"></div>
+		</div>
+		<div class="statRow">
+			<div class="statCol" id="junk14"></div>
+			<div class="statCol" id="score14"></div>
+			<div class="statCol" id="bin14"></div>
+		</div>
+	</div>
+	</section>
+</body>
+<script>
+
+	var scoreString = localStorage.getItem("score"); 	
+	var scoreStringEd = scoreString.split(",").join("<br />");
+	var scoreArray = scoreStringEd.split("<br />");
+	var s = 0;
+	for (var i = 0; i < scoreArray.length; i++) {
+		var strScore = scoreArray[s],
+    		delimiter = '/',
+    		start = 1,
+    		tokens = strScore.split(delimiter).slice(0,start),
+    		result = tokens.join(delimiter);
+    	$('#score'+ s).html(strScore);
+    	s++;
+   }
+   
+	var junkString = localStorage.getItem("junklist"); 	
+	var res1 = junkString.replace(/%C3%B6/g, "ö");
+	var res2 = res1.replace(/%C3%A4/g, "ä");
+	var junkStringEd = res2.split(",").join("<br />");
+	junkStringEd = junkStringEd.split('file://').join(' ');
+	var junkArray = junkStringEd.split("<br />");
+	var j = 0;
+	for (var i = 0; i < junkArray.length; i++) {
+		var str = junkArray[j],
+    		delimiter = '/',
+    		start = 1,
+    		tokens = str.split(delimiter).slice(0,start),
+    		result = tokens.join(delimiter);
+    	var strCut1 = str.slice(43);
+    	var strCut2 = strCut1.substring(0, strCut1.length - 4); 
+    	var img = document.createElement("img");
+    	img.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/" + strCut2 + ".png";
+    	$('#junk'+ j).html(img);
+    	var bin, binImg;
+    	findBin(strCut2);
+    	console.log("Jäte: " + strCut2 + " Roskis: " + bin)
+		$('#bin'+ j).html(binImg);
+    	j++;
+  }
+  
+  function findBin(strCut2)	{
+	switch(strCut2) {
+		
+		case "apple": 
+		case "egg-carton": 
+		case "teabag":
+					bin = "bio";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/bio-bin.png";	
+					break;
+		case "lightbulb": 
+		case "broken-plate": 
+		case "cd-disc":
+					bin = "polttokelpoinen";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/burn-bin.png";
+					break;
+		case "tin-can": 
+		case "spraycan2": 
+		case "sodacan":
+					bin = "metalli";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/metal-bin.png";
+					break;
+		case "milkcan": 
+		case "cardb-box": 
+		case "paper-plate":
+					bin = "pahvi";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/cardb-bin.png";
+					break;
+		case "newspaper": 
+		case "coloured-paper": 
+		case "paperbag":
+					bin = "paperi";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/paper-bin.png";
+					break;
+		case "brown-bottle": 
+		case "glass-jar": 
+		case "broken-bottle":
+					bin = "lasi";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/glass-bin.png";
+					break;					
+		case "plastic-bag": 
+		case "plastic-spoon": 
+		case "shampoo":
+					bin = "muovi";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/plastic-bin.png";
+					break;
+		case "television": 
+		case "micro": 
+		case "blender":
+					bin = "elektroniikka";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/elec-bin.png";
+					break;
+		case "weed-killer": 
+		case "thermometer": 
+		case "battery":
+					bin = "vaarallinen";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/hazmat-bin.png";
+					break;					
+		case "chair": 
+		case "socks": 
+		case "book":
+					bin = "kierrätys";
+					binImg = document.createElement("img");
+    				binImg.src = "/home/itpc/Työpöytä/Jenni/trashbot/images/recyc-bin.png";
+					break;
+		}
+		return (binImg);
+}
+
+</script>
+</html>
